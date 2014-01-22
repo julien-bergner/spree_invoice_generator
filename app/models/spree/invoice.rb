@@ -7,7 +7,7 @@ module Spree
     
     scope :from_current_year, where(["created_at > ? AND created_at < ?", Time.now.at_beginning_of_year, Time.now.at_end_of_year])
     
-    attr_accessible :user, :order, :order_id, :user_id, :invoice_number, :counter
+    #attr_accessible :user, :order, :order_id, :user_id, :invoice_number, :counter
 
     def generate_pdf
       self.update_attribute(:counter, self.counter + 1)
