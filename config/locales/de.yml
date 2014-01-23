@@ -1,0 +1,7 @@
+en:
+  spree:
+    invoice: Rechnung
+    show: zeigen
+    download: PDF
+    print_invoice: Rechnung herunterladen
+    no_such_order_found: "Bestellung nicht gefunden."
