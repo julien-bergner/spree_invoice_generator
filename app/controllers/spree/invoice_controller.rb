@@ -8,7 +8,7 @@ module Spree
       @invoice_print = spree_current_user.has_spree_role?(:admin) ? Spree::Invoice.find_or_create_by_order_id({:order_id => order_id, :user_id => @order ? @order.user_id : nil}) : spree_current_user.invoices.find_or_create_by_order_id(order_id)
       if @invoice_print
         respond_to do |format|
-          format.pdf  { send_data @invoice_print.generate_pdf, :filename => "#{@invoice_print.invoice_number}.pdf", :type => 'application/pdf' }
+          format.pdf  { send_data @invoice_print.generate_pdf, :filename => "#{@order.number}.pdf", :type => 'application/pdf' }
           format.html { render :file => SpreeInvoice.invoice_template_path.to_s, :layout => false }
         end
       else
