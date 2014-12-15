@@ -5,8 +5,8 @@ module Spree
     
     before_create :generate_invoice_number
     
-    scope :from_current_year, where(["created_at > ? AND created_at < ?", Time.now.at_beginning_of_year, Time.now.at_end_of_year])
-    
+    scope :from_current_year, -> { where(["created_at > ? AND created_at < ?", Time.now.at_beginning_of_year, Time.now.at_end_of_year]) }
+
     #attr_accessible :user, :order, :order_id, :user_id, :invoice_number, :counter
 
     def generate_pdf
